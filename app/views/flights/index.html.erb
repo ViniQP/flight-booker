@@ -1,15 +1,5 @@
 <%= render "search_form" %>
 
 <% unless @available_flights.nil? %>
-  <% @available_flights.each do |flight| %>
-  <div>
-  <hr>
-  <h1>Flight <%= flight.id %></h1>
-  <p>Flight from: <%= flight.departure_airport.name %></p>
-  <p>Destination:  <%= flight.arrival_airport.name %></p>
-
-  </div>
-
-  <% end %>
-    <hr>
+  <%= render "search_results" %>
 <% end %>

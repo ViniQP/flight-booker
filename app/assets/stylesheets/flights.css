@@ -1,0 +1,12 @@
+.flight-title {
+  display: flex;
+  gap: 10px;
+
+}
+
+.flight-card {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

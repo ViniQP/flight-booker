@@ -1,24 +1,28 @@
 <% available_airports = Airport.all.map { |airport| [airport.id, airport.name] } %>
-<% available_years = Flight.all.map { |flight| flight.departure_time.year } %>
-<% available_months = Flight.all.map { |flight| flight.departure_time.month} %>
-<% available_days = Flight.all.map { |flight| flight.departure_time.day } %>
+<% available_years = Flight.all.map { |flight| flight.departure_time.year }.uniq %>
+<% available_months = Flight.all.map { |flight| flight.departure_time.month}.uniq %>
+<% available_days = Flight.all.map { |flight| flight.departure_time.day }.uniq %>
 
 <%= form_with url: "/flights", method: :get do |f| %>
-  <%= f.label :departure_airport_id, "Departure" %>
-  <%= f.collection_select :departure_airport_id, available_airports, :first, :second %>
+  <div class="form-control">
+    <div>
+      <%= f.label :departure_airport_id, "Departure", class: "form-label" %>
+      <%= f.collection_select :departure_airport_id, available_airports, :first, :second, {:prompt => true}, class: "form-select" %>
+    </div>
+    <div>
+      <%= f.label :arrival_airport_id, "Arrival", class: "form-label"%>
+      <%= f.collection_select :arrival_airport_id, available_airports, :first, :second, {:prompt => true}, class: "form-select" %>
+    </div>
+    <br>
+    <%= f.label :year, "Year", class: "form-label"%>
+    <%= f.select(:year, available_years, class: "form-select")%>
 
-  <%= f.label :arrival_airport_id, "Arrival" %>
-  <%= f.collection_select :arrival_airport_id, available_airports, :first, :second, {:selected => "NYC"} %>
+    <%= f.label :month, "Month", class: "form-label"%>
+    <%= f.select(:month, available_months, class: "form-select") %>
 
-  <%= f.label :year, "Year" %>
-  <%= f.select(:year, available_years) %>
+    <%= f.label :day, "Day", class: "form-label"%>
+    <%= f.select(:day, available_days, class: "form-select") %>
 
-  <%= f.label :month, "Month" %>
-  <%= f.select(:month, available_months) %>
-
-  <%= f.label :day, "Day" %>
-  <%= f.select(:day, available_days) %>
-
-  <%= f.submit "Submit" %>
-
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
 <% end %>

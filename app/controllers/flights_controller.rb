@@ -13,7 +13,7 @@ class FlightsController < ApplicationController
 
         departure_date = Date.civil(params[:year].to_i, params[:month].to_i, params[:day].to_i)
         @available_flights = Flight.where(departure_airport_id: params[:departure_airport_id], 
-          arrival_airport_id: params[:arrival_airport_id])
+          arrival_airport_id: params[:arrival_airport_id], departure_time: departure_date.all_day)
       end
     end
   end
