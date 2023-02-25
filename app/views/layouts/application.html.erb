@@ -13,11 +13,25 @@
   </head>
 
   <body>
+    <% if flash[:error] %>
+      <div class="card text-bg-danger">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
     <% if flash[:alert] %>
       <div class="notification is-danger global-notification">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
     <%= yield %>
+
+    <% if flash[:success] %>
+      <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+      <% end %>
+    <% end %>
+
   </body>
 </html>

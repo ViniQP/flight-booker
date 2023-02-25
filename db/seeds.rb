@@ -8,14 +8,45 @@
 
 airports = Airport.create([
   { name: 'GRU'},
-  { name: 'NYC'}
+  { name: 'NYC'},
+  { name: 'RIO'},
 ])
 
 flights = Flight.create([
   { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_month, duration: 600},
   { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_year, duration: 600},
   { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_month, duration: 600},
-  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
-  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
-  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600}
-])
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.second.id, arrival_airport_id: airports.third.id, departure_time: Time.now.next_year, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.third.id, arrival_airport_id: airports.second.id, departure_time: Time.now.next_year, duration: 600},
+])  

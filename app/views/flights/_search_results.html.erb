@@ -1,19 +1,17 @@
-<% unless @available_flights.nil? %>
-<%= form_with url: "#" do |f| %>
-<div class="flight-card">
-  <% @available_flights.each do |flight| %>
-    <div class="card">
-      <div class="flight-title card-title">
-        <%= f.radio_button :flight, "{flight.id}"%>
-        <h1>Flight <%= flight.id %></h1>
+<%= form_with url: new_booking_url, method: "get" do |f| %>
+  <div class="flight-card">
+    <% @available_flights.each do |flight| %>
+      <div class="card">
+        <div class="flight-title card-title">
+          <%= f.radio_button :flight_id, "#{flight.id}"%>
+          <h1>Flight <%= flight.id %></h1>
+        </div>
+        <div class="card-body">
+          <p>Flight from: <%= flight.departure_airport.name %></p>
+          <p>Destination:  <%= flight.arrival_airport.name %></p>
+        </div>
       </div>
-      <div class="card-body">
-        <p>Flight from: <%= flight.departure_airport.name %></p>
-        <p>Destination:  <%= flight.arrival_airport.name %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
   <%= f.submit "Proceed to passenger information", class: "btn btn-success" %>
   <% end %>
-<% end %>

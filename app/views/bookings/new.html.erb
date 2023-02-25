@@ -1,0 +1,20 @@
+<h1>Booking</h1>
+
+<%= form_with model: @booking do |f| %>
+  <div class="card">
+    <%= f.fields_for :passengers, @passenger do |p_form| %>
+      <div>
+        <%= p_form.label :name, "Passenger Name" %><br>
+        <%= p_form.text_field :name %>
+      </div>
+
+      <div>
+        <%= p_form.label :email %><br>
+        <%= p_form.email_field :email %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.hidden_field :flight_id, value: @flight_id %>
+  <%= f.submit :submit %>
+<% end %>
+

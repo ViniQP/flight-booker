@@ -1,5 +1,10 @@
 <%= render "search_form" %>
 
-<% unless @available_flights.nil? %>
+<% unless @available_flights.blank? %>
   <%= render "search_results" %>
+<% else %>
+  <br>
+  <div class="card bg-warning">
+    <p>There's no flights available on the selected date!</p>
+  </div>
 <% end %>
