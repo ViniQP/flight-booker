@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+airports = Airport.create([
+  { name: 'GRU'},
+  { name: 'NYC'}
+])
+
+flights = Flight.create([
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600},
+  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.next_month, duration: 600},
+  { departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, departure_time: Time.now.prev_month, duration: 600}
+])
