@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     end
 
     if @passenger.save
+      PassengerMailer.with(passenger: @passenger).booking_email.deliver_now
       flash[:success] = "Your booking was saved successfully!"
       redirect_to root_path
     else
